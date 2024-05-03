@@ -1,0 +1,17 @@
+✨ Attempting to apply the following manifest:
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: example-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: example
+              image: example:latest
+          restartPolicy: OnFailure
+

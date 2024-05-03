@@ -1,0 +1,39 @@
+✨ Attempting to apply the following manifest:
+Sure, here is an example of a ConfigMap with resource usage configuration for CPU and memory:
+
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: resource-usage-config
+data:
+  cpu: "500m"
+  memory: "500Mi"
+
+
+And here is how you would use those values in a Pod:
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: large-mem-pod
+spec:
+  containers:
+  - name: large-mem-container
+    image: example
+    resources:
+      limits:
+        memory: $(MEMORY_LIMIT)
+      requests:
+        memory: $(MEMORY_REQUEST)
+    envFrom:
+    - configMapRef:
+        name: resource-usage-config
+
+
+Please replace `example` with a real container image.
+
+Although you can set all the values directly in the Pod's definition, configuring these values using a ConfigMap makes it more convenient to adjust resource usage across several Pods or containers, or to manage configurations for different environments.
+
+Note: The values `$(MEMORY_LIMIT)` and `$(MEMORY_REQUEST)` will be replaced by the respective values from the `resource-usage-config` ConfigMap. This feature is available starting from Kubernetes v1.20.

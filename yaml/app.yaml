@@ -1,0 +1,37 @@
+✨ Attempting to apply the following manifest:
+
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: example-application
+  labels:
+    app.kubernetes.io/name: example-application
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: example-application
+  componentKinds:
+    - group: core
+      kind: Service
+    - group: apps
+      kind: Deployment
+  descriptor:
+    type: "example-type"
+    version: "v1.0.0"
+    description: "This is an example application"
+    icons:
+    - src: "https://example.com/icon.png"
+      type: "image/png"
+    maintainers:
+    - name: "Example Maintainer"
+      email: "maintainer@example.com"
+    owners:
+    - "Example Owner"
+    keywords:
+    - "example"
+    - "application"
+    links:
+    - description: "Example link"
+      url: "https://example.com"
+  version: v1.0.0
+
