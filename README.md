@@ -1,4 +1,4 @@
-# Встановлення та налаштуйтування kubectl-ai плагіна для створення ШІ Recommended YAML manifests
+# Встановлення та налаштування kubectl-ai плагіна для створення ШІ Recommended YAML manifests
 
 ## Steps to reproduce
 1. Creating an [API key](https://platform.openai.com/account/api-keys)  
